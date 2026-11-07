@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "source": "Демо-данные — ноябрь 2026",
+    "version": "2026.11",
+    "loaded_at": null,
+    "file_name": "demo",
+    "tariffs_source": "Кабинет → Тарифы (демо)",
+    "warnings": []
+  },
+  "settings": {
+    "version": "1.0",
+    "currency": "RUB",
+    "default_scheme": "FBY",
+    "tax": {
+      "regime": "USN_INCOME",
+      "rate": 0.06,
+      "vat_rate": 0.0,
+      "vat_in_price": false
+    },
+    "targets": {
+      "margin_rate": 0.2,
+      "drr_rate": 0.1,
+      "min_margin_rub": 200
+    },
+    "rounding": {
+      "mode": "up_10",
+      "step": 10
+    },
+    "defaults": {
+      "storage_days": 45,
+      "return_rate": 0.05,
+      "other_rate": 0.01
+    },
+    "api": {
+      "base_url": "https://api.partner.market.yandex.ru",
+      "auth_header": "Api-Key",
+      "campaign_id": 1234567,
+      "business_id": 987654,
+      "sync_interval_minutes": 60
+    }
+  },
+  "tariffs": {
+    "version": "2026-11-01",
+    "currency": "RUB",
+    "source": "Кабинет Яндекс Маркета → Настройки → Тарифы (сверять при каждом обновлении)",
+    "campaign_id": 1234567,
+    "valid_from": "2026-11-01",
+    "valid_to": null,
+    "schemes": {
+      "FBY": {
+        "commission_by_category": {
+          "101": 0.1,
+          "102": 0.23,
+          "103": 0.18,
+          "104": 0.15,
+          "105": 0.16
+        },
+        "default_commission": 0.17,
+        "logistics_tiers": [
+          {
+            "volume_from_l": 0,
+            "volume_to_l": 1,
+            "price_rub": 24
+          },
+          {
+            "volume_from_l": 1,
+            "volume_to_l": 3,
+            "price_rub": 35
+          },
+          {
+            "volume_from_l": 3,
+            "volume_to_l": 6,
+            "price_rub": 50
+          },
+          {
+            "volume_from_l": 6,
+            "volume_to_l": 10,
+            "price_rub": 70
+          },
+          {
+            "volume_from_l": 10,
+            "volume_to_l": 15,
+            "price_rub": 90
+          },
+          {
+            "volume_from_l": 15,
+            "volume_to_l": 25,
+            "price_rub": 120
+          },
+          {
+            "volume_from_l": 25,
+            "volume_to_l": 50,
+            "price_rub": 160
+          },
+          {
+            "volume_from_l": 50,
+            "volume_to_l": null,
+            "price_rub": 220
+          }
+        ],
+        "last_mile": {
+          "rate": 0.055,
+          "min_rub": 25,
+          "max_rub": 500
+        },
+        "acquiring": {
+          "rate": 0.0,
+          "included_in_commission": true
+        },
+        "storage": {
+          "rate_per_liter_day": 0.15,
+          "free_days": 0
+        },
+        "returns": {
+          "fee_per_return_rub": 60,
+          "commission_refunded": true
+        },
+        "utilization": {
+          "fee_per_unit_rub": 30
+        },
+        "fines": {
+          "rate": 0.007
+        },
+        "delivery_to_warehouse_rub": 25
+      },
+      "FBS": {
+        "commission_by_category": {
+          "101": 0.12,
+          "102": 0.25,
+          "103": 0.2,
+          "104": 0.17,
+          "105": 0.18
+        },
+        "default_commission": 0.19,
+        "logistics_tiers": [
+          {
+            "volume_from_l": 0,
+            "volume_to_l": null,
+            "price_rub": 70
+          }
+        ],
+        "last_mile": {
+          "rate": 0.055,
+          "min_rub": 25,
+          "max_rub": 500
+        },
+        "acquiring": {
+          "rate": 0.0,
+          "included_in_commission": true
+        },
+        "storage": {
+          "rate_per_liter_day": 0.0,
+          "free_days": 0
+        },
+        "returns": {
+          "fee_per_return_rub": 60,
+          "commission_refunded": true
+        },
+        "utilization": {
+          "fee_per_unit_rub": 0
+        },
+        "fines": {
+          "rate": 0.007
+        },
+        "delivery_to_warehouse_rub": 0
+      }
+    }
+  },
+  "skus": [
+    {
+      "offer_id": "OFF-1001",
+      "market_sku": "1001234567",
+      "name": "Кофеварка капельная 1,2 л",
+      "category_id": "101",
+      "category_name": "Бытовая техника",
+      "brand": "Brand A",
+      "scheme": "FBY",
+      "weight_g": 2400.0,
+      "length_mm": 320.0,
+      "width_mm": 240.0,
+      "height_mm": 300.0,
+      "volume_l": 23.0,
+      "cogs_rub": 2100.0,
+      "packaging_rub": 60.0,
+      "delivery_to_warehouse_rub": 40.0,
+      "storage_days": 45.0,
+      "return_rate": 0.03,
+      "current_price_rub": 4490.0,
+      "min_price_rub": 3790.0,
+      "vat_included": false
+    },
+    {
+      "offer_id": "OFF-1002",
+      "market_sku": "1001234568",
+      "name": "Кроссовки беговые, размер 42",
+      "category_id": "102",
+      "category_name": "Обувь",
+      "brand": "Brand B",
+      "scheme": "FBY",
+      "weight_g": 900.0,
+      "length_mm": 330.0,
+      "width_mm": 230.0,
+      "height_mm": 120.0,
+      "volume_l": 9.1,
+      "cogs_rub": 1450.0,
+      "packaging_rub": 25.0,
+      "delivery_to_warehouse_rub": 30.0,
+      "storage_days": 45.0,
+      "return_rate": 0.18,
+      "current_price_rub": 3990.0,
+      "min_price_rub": 3190.0,
+      "vat_included": false
+    },
+    {
+      "offer_id": "OFF-1003",
+      "market_sku": "1001234569",
+      "name": "Крем для рук 75 мл",
+      "category_id": "103",
+      "category_name": "Красота и косметика",
+      "brand": "Brand C",
+      "scheme": "FBY",
+      "weight_g": 120.0,
+      "length_mm": 60.0,
+      "width_mm": 40.0,
+      "height_mm": 150.0,
+      "volume_l": 0.36,
+      "cogs_rub": 120.0,
+      "packaging_rub": 8.0,
+      "delivery_to_warehouse_rub": 25.0,
+      "storage_days": 30.0,
+      "return_rate": 0.04,
+      "current_price_rub": 590.0,
+      "min_price_rub": 490.0,
+      "vat_included": false
+    },
+    {
+      "offer_id": "OFF-1004",
+      "market_sku": "1001234570",
+      "name": "Набор посуды, 6 предметов",
+      "category_id": "104",
+      "category_name": "Товары для дома",
+      "brand": "Brand D",
+      "scheme": "FBY",
+      "weight_g": 3100.0,
+      "length_mm": 400.0,
+      "width_mm": 300.0,
+      "height_mm": 150.0,
+      "volume_l": 18.0,
+      "cogs_rub": 900.0,
+      "packaging_rub": 45.0,
+      "delivery_to_warehouse_rub": 45.0,
+      "storage_days": 45.0,
+      "return_rate": 0.05,
+      "current_price_rub": 2490.0,
+      "min_price_rub": 2190.0,
+      "vat_included": false
+    },
+    {
+      "offer_id": "OFF-1005",
+      "market_sku": "1001234571",
+      "name": "Мягкая игрушка 40 см",
+      "category_id": "105",
+      "category_name": "Детские товары",
+      "brand": "Brand E",
+      "scheme": "FBY",
+      "weight_g": 450.0,
+      "length_mm": 300.0,
+      "width_mm": 200.0,
+      "height_mm": 350.0,
+      "volume_l": 21.0,
+      "cogs_rub": 340.0,
+      "packaging_rub": 30.0,
+      "delivery_to_warehouse_rub": 30.0,
+      "storage_days": 45.0,
+      "return_rate": 0.07,
+      "current_price_rub": 1490.0,
+      "min_price_rub": 1190.0,
+      "vat_included": false
+    }
+  ],
+  "promos": [
+    {
+      "promo_id": "PROMO-1111-01",
+      "promo_name": "11.11 — распродажа",
+      "promo_type": "DISCOUNT",
+      "offer_id": "OFF-1001",
+      "start_date": "2026-11-05",
+      "end_date": "2026-11-12",
+      "seller_discount_rate": 0.08,
+      "promo_price_rub": null,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.14,
+      "comment": "Скидка за счёт продавца, ДРР растёт до 14%"
+    },
+    {
+      "promo_id": "PROMO-1111-02",
+      "promo_name": "11.11 — распродажа",
+      "promo_type": "DISCOUNT",
+      "offer_id": "OFF-1002",
+      "start_date": "2026-11-05",
+      "end_date": "2026-11-12",
+      "seller_discount_rate": 0.1,
+      "promo_price_rub": null,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.14,
+      "comment": "Обувь: скидка 10%, высокий ДРР"
+    },
+    {
+      "promo_id": "PROMO-BF-01",
+      "promo_name": "Чёрная пятница",
+      "promo_type": "FIXED_PRICE",
+      "offer_id": "OFF-1003",
+      "start_date": "2026-11-20",
+      "end_date": "2026-11-30",
+      "seller_discount_rate": null,
+      "promo_price_rub": 490.0,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.12,
+      "comment": "Фиксированная цена акции 490 ₽"
+    },
+    {
+      "promo_id": "PROMO-BF-02",
+      "promo_name": "Чёрная пятница",
+      "promo_type": "DISCOUNT",
+      "offer_id": "OFF-1004",
+      "start_date": "2026-11-20",
+      "end_date": "2026-11-30",
+      "seller_discount_rate": 0.1,
+      "promo_price_rub": null,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.12,
+      "comment": "Скидка 10% на набор посуды"
+    },
+    {
+      "promo_id": "PROMO-NEW-01",
+      "promo_name": "Новинка",
+      "promo_type": "DISCOUNT",
+      "offer_id": "OFF-1005",
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-30",
+      "seller_discount_rate": 0.05,
+      "promo_price_rub": null,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.15,
+      "comment": "Вывод новинки, повышенный ДРР"
+    },
+    {
+      "promo_id": "PROMO-CLEAR-01",
+      "promo_name": "Распродажа остатков",
+      "promo_type": "DISCOUNT",
+      "offer_id": "OFF-1002",
+      "start_date": "2026-12-01",
+      "end_date": "2026-12-15",
+      "seller_discount_rate": 0.3,
+      "promo_price_rub": null,
+      "platform_subsidy_rate": 0.0,
+      "participation_fee_rub": 0.0,
+      "drr_rate": 0.1,
+      "comment": "Проверка: цена ниже себестоимости"
+    }
+  ]
+}

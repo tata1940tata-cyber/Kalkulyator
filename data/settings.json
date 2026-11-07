@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "currency": "RUB",
+  "default_scheme": "FBY",
+  "tax": {
+    "regime": "USN_INCOME",
+    "rate": 0.06,
+    "vat_rate": 0.0,
+    "vat_in_price": false
+  },
+  "targets": {
+    "margin_rate": 0.2,
+    "drr_rate": 0.1,
+    "min_margin_rub": 200
+  },
+  "rounding": {
+    "mode": "up_10",
+    "step": 10
+  },
+  "defaults": {
+    "storage_days": 45,
+    "return_rate": 0.05,
+    "other_rate": 0.01
+  },
+  "api": {
+    "base_url": "https://api.partner.market.yandex.ru",
+    "auth_header": "Api-Key",
+    "campaign_id": 1234567,
+    "business_id": 987654,
+    "sync_interval_minutes": 60
+  }
+}

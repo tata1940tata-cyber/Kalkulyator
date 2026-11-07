@@ -1,0 +1,57 @@
+{
+  "version": "2026-11-01",
+  "currency": "RUB",
+  "source": "Кабинет Яндекс Маркета → Настройки → Тарифы (сверять при каждом обновлении)",
+  "campaign_id": 1234567,
+  "valid_from": "2026-11-01",
+  "valid_to": null,
+  "schemes": {
+    "FBY": {
+      "commission_by_category": {
+        "101": 0.1,
+        "102": 0.23,
+        "103": 0.18,
+        "104": 0.15,
+        "105": 0.16
+      },
+      "default_commission": 0.17,
+      "logistics_tiers": [
+        { "volume_from_l": 0, "volume_to_l": 1, "price_rub": 24 },
+        { "volume_from_l": 1, "volume_to_l": 3, "price_rub": 35 },
+        { "volume_from_l": 3, "volume_to_l": 6, "price_rub": 50 },
+        { "volume_from_l": 6, "volume_to_l": 10, "price_rub": 70 },
+        { "volume_from_l": 10, "volume_to_l": 15, "price_rub": 90 },
+        { "volume_from_l": 15, "volume_to_l": 25, "price_rub": 120 },
+        { "volume_from_l": 25, "volume_to_l": 50, "price_rub": 160 },
+        { "volume_from_l": 50, "volume_to_l": null, "price_rub": 220 }
+      ],
+      "last_mile": { "rate": 0.055, "min_rub": 25, "max_rub": 500 },
+      "acquiring": { "rate": 0.0, "included_in_commission": true },
+      "storage": { "rate_per_liter_day": 0.15, "free_days": 0 },
+      "returns": { "fee_per_return_rub": 60, "commission_refunded": true },
+      "utilization": { "fee_per_unit_rub": 30 },
+      "fines": { "rate": 0.007 },
+      "delivery_to_warehouse_rub": 25
+    },
+    "FBS": {
+      "commission_by_category": {
+        "101": 0.12,
+        "102": 0.25,
+        "103": 0.2,
+        "104": 0.17,
+        "105": 0.18
+      },
+      "default_commission": 0.19,
+      "logistics_tiers": [
+        { "volume_from_l": 0, "volume_to_l": null, "price_rub": 70 }
+      ],
+      "last_mile": { "rate": 0.055, "min_rub": 25, "max_rub": 500 },
+      "acquiring": { "rate": 0.0, "included_in_commission": true },
+      "storage": { "rate_per_liter_day": 0.0, "free_days": 0 },
+      "returns": { "fee_per_return_rub": 60, "commission_refunded": true },
+      "utilization": { "fee_per_unit_rub": 0 },
+      "fines": { "rate": 0.007 },
+      "delivery_to_warehouse_rub": 0
+    }
+  }
+}

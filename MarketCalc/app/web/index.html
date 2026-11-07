@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МАРКЕТ — калькулятор юнит-экономики</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5"/><path d="M12 12v9"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><rect x="7" y="5.5" width="10" height="4" rx="1"/><path d="M8 13h1M12 13h1M16 13h1M8 17h1M12 17h1M16 17h1"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="m3 12 9-9h7a2 2 0 0 1 2 2v7l-9 9-9-9Z"/><circle cx="16.5" cy="7.5" r="1.3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 15v4.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V15"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m7 11 5 5 5-5"/><path d="M4 19.5V21h16v-1.5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 6.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5"/><circle cx="12" cy="17" r="0.9"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="m6 18 12-12"/><circle cx="7.5" cy="7.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6.5" rx="5.5" ry="2.5"/><path d="M3.5 6.5v4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4"/><path d="M9 13v4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-6"/><ellipse cx="14.5" cy="10.5" rx="5.5" ry="2.5"/></symbol>
+</svg>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><svg class="icon"><use href="#i-box"/></svg></div>
+      <div class="brand-text">
+        <strong>МАРКЕТ</strong>
+        <span>юнит-экономика · калькулятор</span>
+      </div>
+    </div>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-page="overview"><svg class="icon"><use href="#i-grid"/></svg><span>Обзор</span></button>
+      <button class="tab" data-page="calc"><svg class="icon"><use href="#i-calc"/></svg><span>Калькулятор</span></button>
+      <button class="tab" data-page="tariffs"><svg class="icon"><use href="#i-tag"/></svg><span>Тарифы</span></button>
+    </nav>
+
+    <div class="top-actions">
+      <div class="source-chip" id="sourceChip" title="Источник данных">
+        <span class="dot"></span>
+        <span class="source-name" id="sourceName">Загрузка…</span>
+        <span class="source-count" id="sourceCount"></span>
+      </div>
+      <button class="btn btn-ghost" id="btnTemplate" title="Скачать шаблон таблицы">
+        <svg class="icon"><use href="#i-doc"/></svg><span>Шаблон</span>
+      </button>
+      <button class="btn btn-outline" id="btnLoad">
+        <svg class="icon"><use href="#i-upload"/></svg><span>Загрузить данные</span>
+      </button>
+      <button class="btn btn-primary" id="btnExport">
+        <svg class="icon"><use href="#i-download"/></svg><span>Отчёт</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-scroll">
+    <!-- ============================================ ОБЗОР -->
+    <section class="page active" id="page-overview">
+      <div class="page-head">
+        <div>
+          <h1>Портфель SKU</h1>
+          <p class="sub" id="ovSub">Маржа и маржинальность по текущим ценам</p>
+        </div>
+        <div class="kpis" id="ovKpis"></div>
+      </div>
+
+      <div class="toolbar">
+        <div class="chips" id="ovChips"></div>
+        <div class="toolbar-right">
+          <div class="search">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input id="ovSearch" type="text" placeholder="Поиск по товару или артикулу" autocomplete="off">
+          </div>
+          <select class="select" id="ovCategory" aria-label="Категория"></select>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <div class="table-scroll">
+          <table class="data-table" id="ovTable"></table>
+        </div>
+        <div class="table-foot" id="ovFoot"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ КАЛЬКУЛЯТОР -->
+    <section class="page" id="page-calc">
+      <div class="calc-layout">
+        <aside class="card sku-panel">
+          <div class="panel-head">
+            <span>Товары</span>
+            <span class="pill" id="skuCount">0</span>
+          </div>
+          <div class="search compact">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input id="skuSearch" type="text" placeholder="Найти SKU" autocomplete="off">
+          </div>
+          <div class="sku-list" id="skuList"></div>
+        </aside>
+
+        <div class="calc-main" id="calcMain"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ ТАРИФЫ -->
+    <section class="page" id="page-tariffs">
+      <div id="tariffsContent"></div>
+    </section>
+  </main>
+</div>
+
+<!-- модальное окно загрузки -->
+<div class="modal" id="loadModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="loadTitle">
+    <button class="modal-x" id="modalClose" aria-label="Закрыть"><svg class="icon"><use href="#i-close"/></svg></button>
+    <h2 id="loadTitle">Загрузить данные</h2>
+    <p class="modal-sub">
+      Excel-книга с листами «Товары», «Комиссии», «Логистика», «Прочие тарифы», «Акции».
+      Можно загрузить только таблицу товаров — тарифы останутся прежними.
+    </p>
+
+    <div class="dropzone" id="dropzone">
+      <div class="dz-icon"><svg class="icon"><use href="#i-upload"/></svg></div>
+      <b>Перетащите файл сюда</b>
+      <span>или нажмите, чтобы выбрать · .xlsx, .csv</span>
+      <input type="file" id="fileInput" accept=".xlsx,.csv" hidden>
+    </div>
+
+    <div class="modal-hint">
+      Минимум для загрузки: <b>наименование</b>, <b>цена</b>. Остальные колонки — себестоимость,
+      объём, возвраты, комиссия — необязательны. Скачайте шаблон, чтобы увидеть структуру.
+    </div>
+
+    <div class="modal-error" id="modalError" hidden></div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="btnTemplate2">
+        <svg class="icon"><use href="#i-doc"/></svg><span>Скачать шаблон</span>
+      </button>
+      <button class="btn btn-ghost" id="btnResetData">
+        <svg class="icon"><use href="#i-refresh"/></svg><span>Демо-данные</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<div class="loading" id="loading" hidden>
+  <div class="loading-card">
+    <span class="spinner"></span>
+    <span id="loadingText">Читаю файл…</span>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
